@@ -73,6 +73,7 @@ public class ShiroConfig {
         Map<String, String> filterChainDefinitionMap = new HashMap<>();
         //登录接口
         filterChainDefinitionMap.put("/subLogin", "anon");
+        filterChainDefinitionMap.put("/ct/**", "anon");
 //        filterChainDefinitionMap.put("/403", "anon");
         filterChainDefinitionMap.put("/**", "authc");
         filterChainDefinitionMap.put("/logout", "logout");

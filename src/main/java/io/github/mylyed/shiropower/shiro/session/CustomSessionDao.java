@@ -22,7 +22,7 @@ public class CustomSessionDao extends AbstractSessionDAO {
 
     @Override
     protected Serializable doCreate(Session session) {
-        System.out.println("doCreate");
+        //System.out.println("doCreate");
         Serializable sessionId = "shiro_" + generateSessionId(session);
 
         //把生成id 设置到创建的会话上
@@ -31,31 +31,30 @@ public class CustomSessionDao extends AbstractSessionDAO {
 
         sessions.putIfAbsent(sessionId, session);
 
-
         return sessionId;
     }
 
     @Override
     protected Session doReadSession(Serializable sessionId) {
-        System.out.println("doReadSession");
+        // System.out.println("doReadSession");
         return sessions.get(sessionId);
     }
 
     @Override
     public void update(Session session) throws UnknownSessionException {
-        System.out.println("update session");
+        //System.out.println("update session");
         sessions.put(session.getId(), session);
     }
 
     @Override
     public void delete(Session session) {
-        System.out.println("delete session");
+        // System.out.println("delete session");
         sessions.remove(session.getId());
     }
 
     @Override
     public Collection<Session> getActiveSessions() {
-        System.out.println("getActiveSessions");
+        //System.out.println("getActiveSessions");
         return sessions.values();
     }
 }
